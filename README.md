@@ -16,13 +16,14 @@ Mein Lernweg in Code: Python, Mathe und KI, ein Lerntag nach dem anderen.
 ## Ausführen
 
 ```
-python tracker/t02_auswertung.py stimmung --tage 7
-python gleichungen/t03_loese.py 7 -4 3 12
+python tracker/auswertung.py stimmung --tage 7
+python gleichungen/loeser.py 7 -4 3 12
 ```
 
 `tracker/eintraege.jsonl` enthält Beispieldaten, nicht meine echten.
 
 ## Aufbau
 
-- Ein Ordner pro Projekt. Projekte wachsen über mehrere Lerntage, die Dateien tragen die Nummer des Lerntags (`t02_...`).
+- Ein Ordner pro Projekt. Projekte wachsen über mehrere Lerntage, welcher Lerntag in welchen Ordner gehört, steht im Lehrbuch oben auf jeder Seite.
+- Dateien heißen nach dem, was sie tun (`loeser.py`), nicht nach dem Lerntag. Den Verlauf zeigt Git.
 - Daten liegen neben dem Script, das sie liest.
