@@ -1,4 +1,5 @@
 import json
+from pathlib import Path
 
 
 def mittelwert(werte):
@@ -10,7 +11,7 @@ def mittelwert(werte):
         else:
             return sum
 
-with open("/Users/lennox/Documents/lab/Lehrbuch/d4.jsonl", "a+") as f:
+with open(Path(__file__).parent / "d4.jsonl", "a+") as f:
     f.seek(0)
     i = 0
     eintraege = []

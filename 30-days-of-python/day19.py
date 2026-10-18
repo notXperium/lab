@@ -1,6 +1,10 @@
 #File Handling
+from pathlib import Path
+
+datei = Path(__file__).parent / "jsonday19.txt"
+
 #with open() as x closes file itself
-with open("/Users/lennox/Documents/lab/30days Python/jsonday19.txt", "a+") as f:
+with open(datei, "a+") as f:
     f.write("test")
     f.truncate(0)
     f.seek(0)
@@ -27,7 +31,7 @@ person = {
     "city": "Helsinki",
     "skills": ["JavaScrip", "React", "Python"]
 }
-with open("/Users/lennox/Documents/lab/30days Python/jsonday19.txt", "a+") as f:
+with open(datei, "a+") as f:
 
     js = json.dump(person, f, ensure_ascii=False, indent=4)
 
