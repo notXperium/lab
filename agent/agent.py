@@ -2,7 +2,12 @@ from datetime import datetime,timedelta
 from dotenv import load_dotenv
 from pathlib import Path
 import requests
+import sys
 import os
+
+
+sys.path.append(str(Path(__file__).parent.parent / "rechner"))
+from rechner import token, sort, calc
 
 load_dotenv()
 KEY = os.environ["GEMINI_API_KEY"]
@@ -13,7 +18,10 @@ NOTIZEN = Path(__file__).parent / "notizen"
 
 
 def rechne(ausdruck):
-    return eval(ausdruck)  # T05/T06 ersetzen das durch einen sicheren Rechner
+    try:
+        return calc(sort(token(ausdruck)))
+    except Exception as e:
+        return str(e)  
 
 
 def wetter(ort):
