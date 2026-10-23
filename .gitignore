@@ -6,3 +6,4 @@ __pycache__/
 
 # erzeugt day19.py selbst
 30-days-of-python/jsonday19.txt
+venv/
