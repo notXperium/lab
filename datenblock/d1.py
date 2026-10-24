@@ -1,28 +1,3 @@
-
-# tage = 1
-
-# while tage <= 5:
-#     print("Tag", tage)
-#     tage+=1
-# print("\n")
-
-# werte = [6, 7, 5]
-
-# for key, value in dict(zip(range(1,len(werte)+1), werte)).items():
-#     print(key, ":", value)
-# print("\n")
-# for key, value in enumerate(werte, start=1):
-#     print(key, ":", value)
-
-# print("\n")
-
-# n = 4
-# for i in range(n, 0, -1):
-#     print(i)
-# print("Los!")
-
-# print("\n")
-
 tage = 5
 
 for i in range(1, tage+1):

@@ -25,8 +25,4 @@ for i in eintraege:
     days[i["tag"]] = days.get(i["tag"], [])
     days[i["tag"]].append(i["stimmung"])
 
-        
-
-        
-
 print(days)

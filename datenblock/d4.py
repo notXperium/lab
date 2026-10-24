@@ -1,7 +1,6 @@
 import json
 from pathlib import Path
 
-
 def mittelwert(werte):
         sum = 0
         if werte:
@@ -20,21 +19,10 @@ with open(Path(__file__).parent / "d4.jsonl", "a+") as f:
             eintraege.append(json.loads(line))
             i +=1
 
-     
-    #print(f"{i} Einträge")
-    #print(eintraege[0])
-
     datum = []
 
     for l in eintraege:
         datum.append(l["zeit"])
-
-   # print(sorted(set(datum[:10])))
-
-    # for date in sorted(set(datum)):
-    #     data = eintraege.get(date)
-    #     print(data) 
-
 
     days = {}
     for eintrag in eintraege:
