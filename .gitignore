@@ -3,6 +3,11 @@
 __pycache__/
 *.pyc
 .DS_Store
-
+pakete.txt
+typings/
 # erzeugt day19.py selbst
 30-days-of-python/jsonday19.txt
+.vscode/
+
+turm/Turm.md
+Assets/geheim
