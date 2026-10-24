@@ -7,6 +7,6 @@
 ## Inhalt
 | Funktion | Was? |
 | --- | --- |
-| [Token](./rechner.py#L2-L21) | Zerlegt die Eingabe in Zahlen und Rechenzeichen und gibt sie als Liste aus, ungültige Zeichen werden abgelehnt |
-| [Sort](./rechner.py#L22-L51) | Rekursive Funktion, die Klammern auflöst und jede Klammer als eigene Liste in der Liste ausgibt |
-| [Calc](./rechner.py#L52-L82) | Rekursive Funktion, die diese Listen ausrechnet, Punkt vor Strich |
+| [Token](./rechner.py#L2-L20) | Zerlegt die Eingabe in Zahlen und Rechenzeichen und gibt sie als Liste aus, ungültige Zeichen werden abgelehnt |
+| [Sort](./rechner.py#L22-L50) | Rekursive Funktion, die Klammern auflöst und jede Klammer als eigene Liste in der Liste ausgibt |
+| [Calc](./rechner.py#L52-L81) | Rekursive Funktion, die diese Listen ausrechnet, Punkt vor Strich |
