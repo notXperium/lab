@@ -5,11 +5,12 @@ kamera = cv2.VideoCapture(0)
 time.sleep(1)
 
 def red(b,g,r):
-    return (r > 150) & (r > 2*g) & (r > 2*b)
+    return (r > 100) & (r > 3*g) & (r > 2*b)
 
 while True:
 
     ok, bild = kamera.read()
+    bild = bild[::3, ::3]
     if not ok:
         exit()
     b = bild[:, :, 0].astype(int)
