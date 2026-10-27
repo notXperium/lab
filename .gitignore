@@ -8,6 +8,7 @@ typings/
 # erzeugt day19.py selbst
 30-days-of-python/jsonday19.txt
 .vscode/
+secret.py
 
 turm/Turm.md
 Assets/geheim
