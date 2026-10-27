@@ -1,7 +1,7 @@
 from secret import SSID, KEY
 import network, time, sys
+import json, re
 import socket
-import json
 
 
 wifi = network.WLAN()
@@ -35,27 +35,26 @@ while True:
             break
         request += chunk
 
-    request_line = request.decode("utf-8").split("\r\n")[0].split(" ")
-
+    request_line = [r.strip() for r in request.decode("utf-8").split("\r\n")[0].split(" ") if not r.strip().startswith("HTTP")]
+    pattern = r"^(/winkel)\?pan=(\d+)&tilt=(\d+)$"
     data = {}
 
-    if "favicon.ico" in request_line[1]:
+    if len(request_line) < 2 or "favicon.ico" in request_line[1]:
         client.close()
         continue
 
     if request_line[0] == "GET":
 
-        if all(p in request_line[1] for p in ("/winkel", "pan", "tilt")):
-            path, query = request_line[1].split("?", 1)
+        m = re.search(pattern, request_line[1])
 
-            data = {"path": path, "pan": None, "tilt": None}
-
-            if query:
-             for pair in query.split("&"):
-                 key, value = pair.split("=")
-                 if value.isdigit():
-                    if key in data: data[key] = int(value)
+        if m:
+            path = m.group(1)
+            pan = int(m.group(2))
+            tilt = int(m.group(3))
         
+            if 0 <= pan <= 180 and 0 <= tilt <= 180:
+                data = {"path": path, "pan": pan, "tilt": tilt}
+                
 
     if len(data):
         data_json = json.dumps(data)
@@ -68,11 +67,13 @@ while True:
             f"{data_json}"
         )
     else:
+         error = json.dumps({"Code": "422", "Error": "Unprocessable Entity"})
          res = (
             "HTTP/1.1 422 Unprocessable Entity\r\n"
-            "Content-Type: text/html; charset=utf-8\r\n"
+            "Content-Type: application/json; charset=utf-8\r\n"
+            f"Content-Length: {len(error.encode('utf-8'))}\r\n"
             "\r\n"
-            "<h1>Unprocessable Entity</h1>"
+            f"{error}"
         )
          
     try:
