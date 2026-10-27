@@ -1,4 +1,4 @@
-from secret import SSID, KEY
+from turret.secret import SSID, KEY
 import network, time, sys
 import json, re
 import socket
