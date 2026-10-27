@@ -56,3 +56,10 @@ Servos sind angekommen!
 Endpoint `/winkel` nimmt Parameter `pan` und `tilt`
 
 **Code:** [API](./basics/api.py)
+
+## Steuerung und API als Klassen
+
+<img src="../Assets/geheim/api-control.jpeg" width="500" alt="API Control">
+
+Klassen [API](./classes/api.py) und [Turret](./classes/turret.py) werden in [main.py](./main.py) zusammengeführt. Servos werden über Anfrage im Webbrowser gesteuert.
+
